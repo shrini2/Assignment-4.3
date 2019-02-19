@@ -1,0 +1,27 @@
+Assignment-3_Session-4
+
+Problem Statement:
+
+1. Create a box and whisker plot by class using mtcars dataset.
+Answer-
+mtcars1 <- mutate(mtcars, 
+                  cyl = as.factor(cyl),
+                  vs = as.factor(vs),
+                  am = as.factor(am),
+                  gear = as.factor(gear),
+                  carb = as.factor(carb),
+                  mpg = mpg, hp = hp, drat = drat, qsec=qsec)
+str(mtcars1)
+par(mfrow=c(3,3))
+
+i <- c(1,3,4,5,6,7)
+j <- c(2,8,9,10,11)
+
+for(k in i){
+  print(k)
+  for(m in j){
+    print(m)
+    boxplot(mtcars1[, k]~mtcars1[, m], data = mtcars1, xlab=colnames(mtcars1[, m]), 
+ylab=colnames(mtcars1[, k]), col = heat.colors(5))
+   }
+}
